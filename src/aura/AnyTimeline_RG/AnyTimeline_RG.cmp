@@ -1,0 +1,38 @@
+<aura:component controller="AnyTimeline_RG_Ctrl" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="timelineTitle" type="String" default="Timeline"/>
+    <aura:attribute name="sObjectName" type="String" default="Event"/>
+    <aura:attribute name="titleField" type="String" default="Description"/>
+    <aura:attribute name="startDateTimeField" type="String" default="StartDateTime"/>
+    <aura:attribute name="height" type="String" default="65"/>
+    <aura:attribute name="filterByParentRecord" type="Boolean" default="false"/>
+    <aura:attribute name="parentField" type="String" default="WhoId"/>
+    <aura:attribute name="timelineEvents" type="Map"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds">
+        <div class="slds-card slds-card_boundary forceBaseCard" style="{! 'height:' + v.height + 'vh;overflow-y:auto;'}">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="header-title-container">
+                            <span class="slds-text-heading--small slds-truncate">
+                                {!v.timelineTitle}
+                            </span>
+                        </h2>
+                    </div>
+                </header>
+                <div class="slds-no-flex"><!--render facet: 235:308;a--></div>
+            </div>
+            <div class="slds-card__body slds-card__body--inner">
+            	<div class="timeline-container">
+                <aura:iteration items="{!v.timelineEvents}" var="timelineItem">
+                    <c:TimelineItem_RG timelineItem="{!timelineItem}"/>
+                </aura:iteration>
+            </div>
+            </div>
+            <div class="slds-card__footer"></div>
+        </div>
+    </div>
+</aura:component>

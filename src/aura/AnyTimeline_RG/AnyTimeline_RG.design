@@ -1,0 +1,9 @@
+<design:component label="AnyTimeline">
+    	<design:attribute name="timelineTitle" label="Timeline Heading" description="What would you like the title of the timeline to be?"/>
+	<design:attribute name="sObjectName" label="sObject API Name" description="API Name of the sObject"/>
+    <design:attribute name="titleField" label="Title Field API Name" description="API Name of the Title Field"/>
+    <design:attribute name="startDateTimeField" label="Start DateTime Field API Name" description="API Name of the Start DateTime Field"/>
+    <design:attribute name="height" label="Timeline Height as Percentage of Page" description="Default height is 65%"/>
+    <design:attribute name="filterByParentRecord" label="Filter by Parent Record" description="Check this box, if you only want to show record relateds to the Parent Record"/>
+    <design:attribute name="parentField" label="Parent Field API Name" description="API Name of the Parent Field"/>
+</design:component>
